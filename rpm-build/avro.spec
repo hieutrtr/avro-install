@@ -38,7 +38,8 @@ cp -rf  ../src/* $RPM_BUILD_ROOT/src/
 # the post section is where you can run commands after the rpm is installed.
 cp -rf lib/* /usr/lib64/
 cp -rf lib/* /usr/lib/
-cp -rf src/* /usr/include/
+cp -rf src/avro.h /usr/include/
+cp -rf src/avro /usr/include/
 
 %files
 %defattr(-,root,root)
