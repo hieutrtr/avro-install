@@ -26,3 +26,5 @@ cp -f ../src/avro-c.pc.in ./src/avro-c.pc
 sudo make install
 mkdir -p avrolib/lib/static
 cp avrolib/lib/libavro.a avrolib/lib/static/libavro.a
+cp avrolib/lib/libavro.* /usr/lib64/
+cp avrolib/lib/libavro.* /usr/lib/
