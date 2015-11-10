@@ -1,1 +1,2 @@
-rpm -ivh rpm-build/avro-1.7.7-0.x86_64.rpm
+To quick install : rpm -ivh rpm-build/avro-1.7.7-0.x86_64.rpm
+Spec file : rpm-build/avro.spec

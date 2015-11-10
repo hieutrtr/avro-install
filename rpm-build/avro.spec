@@ -15,27 +15,32 @@ BuildRoot:      /root/rpmbuild/BUILD
 Avro to build schema and validation
 
 %prep
-cp -rf /root/rpmbuild/SOURCES/avro-c-1.7.7.tar.gz /root/rpmbuild/BUILD/
+tar -xzvf /root/rpmbuild/SOURCES/avro-c-1.7.7.tar.gz
 
-%install
-mkdir -p $RPM_BUILD_ROOT/
-cp -rf * $RPM_BUILD_ROOT/
-
-%post
-# the post section is where you can run commands after the rpm is installed.
-tar -xzvf avro-c-1.7.7.tar.gz
+%build
 cd avro-c-1.7.7
 mkdir -p build
 cd build
 cmake .. -DCMAKE_INSTALL_PREFIX=avrolib -DCMAKE_BUILD_TYPE=Release
+
+%install
+cd avro-c-1.7.7/build
 make
 make test
 cp -f ../src/avro-c.pc.in ./src/avro-c.pc
 sudo make install
-cp -rf avrolib/lib/libavro.* /usr/lib64/
-cp -rf avrolib/lib/libavro.* /usr/lib/
-cp -rf ../src/* /usr/include/
+mkdir -p $RPM_BUILD_ROOT/lib/
+mkdir -p $RPM_BUILD_ROOT/src/
+cp -rf  avrolib/lib/* $RPM_BUILD_ROOT/lib/
+cp -rf  ../src/* $RPM_BUILD_ROOT/src/
+
+%post
+# the post section is where you can run commands after the rpm is installed.
+cp -rf lib/* /usr/lib64/
+cp -rf lib/* /usr/lib/
+cp -rf src/* /usr/include/
 
 %files
 %defattr(-,root,root)
-/
+/lib
+/src
