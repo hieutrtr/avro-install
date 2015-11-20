@@ -34,7 +34,7 @@ mkdir -p $RPM_BUILD_ROOT/src/
 cp -rf  avrolib/lib/libavro.a $RPM_BUILD_ROOT/lib/
 cp -rf  avrolib/lib/libavro.so $RPM_BUILD_ROOT/lib/
 cp -rf  avrolib/lib/libavro.so.22.0.0 $RPM_BUILD_ROOT/lib/
-cp -rf  ../src/*.h $RPM_BUILD_ROOT/src/
+cp -rf  ../src/avro.h $RPM_BUILD_ROOT/src/
 cp -rf  ../src/avro $RPM_BUILD_ROOT/src/
 
 %post
