@@ -31,15 +31,17 @@ cp -f ../src/avro-c.pc.in ./src/avro-c.pc
 sudo make install
 mkdir -p $RPM_BUILD_ROOT/lib/
 mkdir -p $RPM_BUILD_ROOT/src/
-cp -rf  avrolib/lib/* $RPM_BUILD_ROOT/lib/
-cp -rf  ../src/* $RPM_BUILD_ROOT/src/
+cp -rf  avrolib/lib/libavro.a $RPM_BUILD_ROOT/lib/
+cp -rf  avrolib/lib/libavro.so $RPM_BUILD_ROOT/lib/
+cp -rf  avrolib/lib/libavro.so.22.0.0 $RPM_BUILD_ROOT/lib/
+cp -rf  ../src/*.h $RPM_BUILD_ROOT/src/
+cp -rf  ../src/avro $RPM_BUILD_ROOT/src/
 
 %post
 # the post section is where you can run commands after the rpm is installed.
 cp -rf lib/* /usr/lib64/
 cp -rf lib/* /usr/lib/
-cp -rf src/avro.h /usr/include/
-cp -rf src/avro /usr/include/
+cp -rf src/* /usr/include/
 
 %files
 %defattr(-,root,root)
