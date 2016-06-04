@@ -1,4 +1,4 @@
-Name:           avro
+Name:           avro-c
 Version:        1.7.7
 Release:        0
 Summary:        Build schemas and validation.
