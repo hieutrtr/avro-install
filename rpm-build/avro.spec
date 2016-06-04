@@ -36,12 +36,20 @@ cp -rf  avrolib/lib/libavro.so $RPM_BUILD_ROOT/lib/
 cp -rf  avrolib/lib/libavro.so.22.0.0 $RPM_BUILD_ROOT/lib/
 cp -rf  ../src/avro.h $RPM_BUILD_ROOT/src/
 cp -rf  ../src/avro $RPM_BUILD_ROOT/src/
+cp -rf  ../src/avro-c.pc $RPM_BUILD_ROOT/src/
 
 %post
 # the post section is where you can run commands after the rpm is installed.
-cp -rf lib/* /usr/lib64/
-cp -rf lib/* /usr/lib/
-cp -rf src/* /usr/include/
+cp -rf lib/libavro.a /usr/lib64/
+cp -rf lib/libavro.so /usr/lib64/
+cp -rf lib/libavro.so.22.0.0 /usr/lib64/
+cp -rf lib/libavro.a /usr/lib/
+cp -rf lib/libavro.so /usr/lib/
+cp -rf lib/libavro.so.22.0.0 /usr/lib/
+cp -rf src/avro.h /usr/include/
+cp -rf src/avro /usr/include/
+cp -rf src/avro-c.pc /usr/lib64/pkgconfig/
+cp -rf src/avro-c.pc /usr/lib/pkgconfig/
 
 %files
 %defattr(-,root,root)
